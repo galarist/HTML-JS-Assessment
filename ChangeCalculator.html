@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+Purpose: Change Calculator - Displays the minimum number of 5 cents, ten cents, 20 cents, and 50 cents that represent the coins .
+Author: Cristovao Galambos
+Student Number: 4104841415
+Date: 11/03/2018
+-->
+<html leng="en">
+<head>
+	<!-- I designed and edited the whole webpage and used my own codes -->
+	<meta charset="UTF-8">
+
+	<style>
+	body {
+		color:#f0e8e8;
+		height: 100%;
+		background: url('leather.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center; 
+	}
+
+     h1 {
+          text-align: center;
+     }
+
+	input {
+		display: block;
+		border: 3px solid #2C2C2C;
+          display: ruby;
+		font-size: 15pt;
+		padding: 10px;
+		border-radius: 10px;
+		margin-left: 20px;
+          width: 145px;
+
+	}
+
+	div {
+		margin: 0 auto;
+	}
+
+	button {
+		float: right;
+		border: 1px solid black;
+		width: 140px ;
+		font-size: 15pt;
+		padding: 10px;
+		border-radius: 10px;
+		margin-left: 18px;
+	}
+
+	.row {
+		display: inline-grid;
+	}
+
+     .answer {
+		color: black !important;
+     }
+
+	h1 {		
+		text-align: center;   
+		background-color: #2C2827;
+		border: 1px dashed blanchedalmond;
+		padding: 10px;
+		width: 630px;
+		margin-bottom: 5px !important;
+		margin: 0 auto;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	#container {
+		border: 1px dashed blanchedalmond;
+		background-color: #2F2F2F;
+		margin-top: 5px;
+		border-radius:10px;
+		width: 550px;
+		padding: 5px 50px 50px 50px;
+		text-align: center;
+	}
+
+	#entry {
+		margin-top: -25px;
+	}
+
+	#calculate {
+		width: 100px;
+		padding: 0px 8px;
+		cursor: pointer;
+		text-align: center;
+		background-color: #D4D1D1;
+		color: #2C2827;
+		margin-top: 15px;
+		float: right;
+		margin-left: 200px;
+		margin-top: -51px;
+	}
+
+	label {
+		font-size: 18pt;
+		padding: 10px;
+		text-align: left;
+	}
+
+     p {
+		display: inline-grid;
+		font-size: 18pt;
+     }
+		
+	#text {	
+		margin-bottom: 10px;
+	}
+	
+	#Five, #Ten, #Twenty, #Fifty { cursor: not-allowed;}	
+	
+	nav {
+		width: 800px;
+		margin: 0 auto;	
+	}
+	
+	li {
+		display: inline-block;
+		margin-left: 33px;
+		margin-right: -4px;
+	}
+	
+	a {
+		text-decoration-line :none;
+		font-size: 15pt;
+		background-color: #2C2827;
+		color: #f0e8e8;
+		border: 1px dashed blanchedalmond;
+		padding: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;		
+	}
+	</style>
+
+<title>Web page 2 - Change Calculator</title>
+
+<script>		
+	function calculate(value){
+		var Coin = document.getElementById("Coin");
+		var remaining = Coin.value;
+		var Five = 0;
+		var Ten = 0;
+		var Twenty = 0;
+		var Fifty = 0;
+
+		Fifty = Math.floor(remaining / 50);
+		remaining -= (Fifty * 50);
+		Twenty = Math.floor(remaining / 20);
+		remaining -= (Twenty * 20);
+		Ten = Math.floor(remaining / 10);
+		remaining -= (Ten * 10);
+		Five = Math.floor(remaining / 5);
+		remaining -= (Five * 5);
+
+		if ( Coin.value < 0 || Coin.value > 99 ){
+		alert ("Type numbers from: 0 - 99");
+		var Coin = Coin.value = 0;	 
+		} 
+		
+		else {
+			document.getElementById('Five').value = Five.toFixed(0);
+			document.getElementById('Ten').value = Ten.toFixed(0);
+			document.getElementById('Twenty').value = Twenty.toFixed(0);
+			document.getElementById('Fifty').value = Fifty.toFixed(0);
+		}}			
+</script>
+
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="ChangeCalculator.html">Change Calculator</a></li>
+			<li><a href="AreaAndPerimeterCalculator.html">Area and Perimeter Calculator</a></li>
+			<li><a href="AnArticlePage.html">An Article Page</a></li>
+		</ul>
+	</nav>
+
+	<h1>Change Calculator</h1>
+	
+     <div id="container">			
+		<div id="entry"><p><span id="text">Enter number of cents (0-99): </span>                   
+               <input type="text" name="Cent" id="Coin">
+			<button onClick='calculate();' type="button" id="calculate" value="click" >Calculate </button></p>
+          </div>
+		<main>
+			<div class="row"><label for="Length">Five Cents: </label>
+			<input class="answer" type="text" id="Five" disabled></div>
+			<div class="row"><label for="Width">Ten Cents: </label>
+			<input class="answer" type="text" id="Ten" disabled></div>
+			<div class="row"><label for="Twenty" disabled>Twenty Cents: </label>
+			<input class="answer" type="text" id="Twenty" disabled></div>
+			<div class="row"><label for="Fifty">Fifty Cents: </label>
+			<input class="answer" type="text" id="Fifty" disabled></div>
+          </main>
+	</div>	
+</body>
+</html>

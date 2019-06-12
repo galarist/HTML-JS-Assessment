@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+Purpose: Area and Perimeter calculator - It is calculating the area and perimeter of the rectangle with positive numbers.
+Author: Cristovao Galambos
+Student Number: 4104841415
+Date: 11/03/2018
+-->
+<html leng="en">
+<head>
+	<!-- I designed and edited the whole webpage and used my own codes -->
+	<meta charset="UTF-8">
+	
+	<style>
+	body {
+          color:#f0e8e8;
+          height: 100%;
+		background: url('leather.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center; 
+	}
+
+	h1 {		
+		text-align: center;   
+		background-color: #2C2827;
+		border: 1px dashed blanchedalmond;
+		padding: 10px;
+		width: 630px;
+		margin-bottom: 5px !important;
+		margin: 0 auto;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;	
+	}
+	
+	main {
+		width: 500px;
+		margin: 0 auto;
+	}
+
+	div {
+		margin: 0 auto;
+	}
+
+	.row input, button {
+		float: right;
+		border: 1px solid black;
+		width: 140px ;
+		font-size: 15pt;
+		padding: 10px;
+		border-radius: 10px;
+		margin-left: 18px;
+	}
+
+	.row {
+		display: inline-grid;
+	}
+
+	#area, #perimeter {
+		background-color: #d4d1d1
+	}
+
+	#container {
+		border: 1px dashed blanchedalmond;
+		background-color: #2F2F2F;
+		margin-top: 5px;
+		border-radius:10px;
+		width: 550px;
+		padding: 5px 50px 50px 50px;
+	}
+
+	#calculate {
+		width: 100px;
+		padding: 10px 8px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		clear: both;
+		background-color: #D4D1D1;
+		color: #2C2827;
+	}
+
+	label {
+		font-size: 18pt;
+		padding: 10px;
+	}
+	
+	#text {
+		font-size: 18pt;	
+		text-align: center !important;
+		margin-left: 60px;
+	}
+	
+	#perimeter, #area {
+		cursor: not-allowed;
+	}
+	
+	nav {
+		width:800px;
+		margin: 0 auto;	
+	}
+	
+	li {
+		display: inline-block;
+		margin-left:33px;
+		margin-right: -4px;
+	}
+	
+	a {
+		text-decoration-line: none;
+		font-size: 15pt;
+		background-color: #2C2827;
+		color: #f0e8e8;
+		border: 1px dashed blanchedalmond;
+		padding: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;	
+	}
+	</style>
+	
+<title>Web page 1 - Area and Perimeter Calculator</title>
+
+<script>					
+	function calculate() {
+		var length = document.getElementById("Length");
+		var width = document.getElementById("Width");
+		var area = width.value * length.value;
+		var perimeter = 2 * width.value + 2 * length.value;
+
+		if (area <= 0 || perimeter <= 0) { 
+		alert ("Only positive numbers and more then 0");
+		var length = length.value = 0;
+		var width = width.value = 0;		
+		} 
+
+		else {
+			area = area.toFixed(2)
+			document.getElementById("area").value = area;
+
+			perimeter = perimeter.toFixed(2)
+			document.getElementById("perimeter").value = perimeter;					
+		}}
+</script>
+
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="ChangeCalculator.html">Change Calculator</a></li>
+			<li><a href="AreaAndPerimeterCalculator.html">Area and Perimeter Calculator</a></li>
+			<li><a href="AnArticlePage.html">An Article Page</a></li>
+		</ul>
+	</nav>
+
+	<h1>Area and Perimeter Calculator</h1>
+
+	<div id="container">
+		<span id="text">Enter the values below and click "Calculate". </span> <br><br>
+		<main>
+			<div class="row"><label for="Length">Length: </label>
+			<input type="text" id="Length" placeholder="Example: 10.5"></div>
+			<div class="row"><label for="Width">Width: </label>
+			<input type="text" id="Width" placeholder="Example: 20.65"></div>
+			<div class="row"><label for="area">Area: </label>
+			<input type="text" id="area" disabled></div>
+			<div class="row"><label for="perimeter">Perimeter: </label>
+			<input type="text" id="perimeter" disabled></div>
+			<button onClick='calculate();' type="button" id="calculate" value="click" >Calculate </button>
+		</main>
+	</div>
+</body>
+</html>
